@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>MBTI Type Prediction</title>
+        <!-- Favicon-->
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Simple line icons-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- CSS only -->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet" />
+
+    </head>
+    <body id="page-top">
+
+
+
+        <!-- Header-->
+        <header class="masthead d-flex align-items-center">
+            <div class="container px-4 px-lg-5 text-center">
+                <h1 class="mb-1">MBTI Personality Type</h1>
+                <h3 class="mb-5"><em>Find your MBTI type</em></h3>
+                <a class="btn btn-primary btn-xl" href="#pred">Start!</a>
+            </div>
+        </header>
+        <!-- dichotomies-->
+        <section class="content-section bg-primary text-white text-center" id="dichotomies">
+            <div class="container px-4 px-lg-5">
+                <div class="content-section-heading">
+                    <h2 class="mb-5">The dichotomies</h2>
+                </div>
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+
+                        <h4><strong>E/I</strong></h4>
+                        <p class="text-faded mb-0">Extraversion (E) – Introversion (I)</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+
+                        <h4><strong>S/N</strong></h4>
+                        <p class="text-faded mb-0">Sensing (S) – Intuition (N)</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+
+                        <h4><strong>T/F</strong></h4>
+                        <p class="text-faded mb-0">
+                            Thinking (T) – Feeling (F)
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+
+                        <h4><strong>J/P</strong></h4>
+                        <p class="text-faded mb-0">Judging (J) – Perceiving (P)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About the types-->
+        <section class="content-section" id="portfolio">
+            <div class="container px-4 px-lg-5">
+                <div class="content-section-heading text-center">
+                    <h2 class="mb-5">About the Dichotomies</h2>
+                </div>
+                <div class="row gx-0">
+                    <div class="col-lg-6">
+                            <img class="img-fluid" src="../static/images/ex-in1.jpg" />
+                    </div>
+                    <div class="col-lg-6">
+
+                            <img class="img-fluid" src="../static/images/s-n.jpg" />
+
+                    </div>
+                    <div class="col-lg-6">
+
+
+                            <img class="img-fluid" src="../static/images/t-f.jpg" />
+
+                    </div>
+                    <div class="col-lg-6">
+
+                            <img class="img-fluid" src="../static/images/j-p.jpg"/>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+       <section id="pred" >
+         <!-- prediction section -->
+             <section class="pred">
+               <h1 class="sec-pred ">MBTI Type Prediction</h1>
+               <form action="predict" method="POST">
+                 <div class="form-group f-element">
+                   <label for="text1">Extraversion (E) – Introversion (I) :</label>
+                   <input type="text" class="form-control" id="text1" name="txt1" placeholder="Type here...">
+                 </div>
+                 <div class="form-group f-element">
+                   <label for="text2">Sensing (S) – Intuition (N) :</label>
+                   <input type="text" class="form-control" id="text2" name="txt2" placeholder="Type here...">
+                 </div>
+                 <div class="form-group f-element">
+                   <label for="text3">Thinking (T) – Feeling (F) :</label>
+                   <input type="text" class="form-control" id="text3" name="txt3" placeholder="Type here...">
+
+                 </div>
+                 <div class="form-group f-element">
+                   <label for="text4">Judging (J) – Perceiving (P) :</label>
+                   <input type="text" class="form-control" id="text4" name="txt4" placeholder="Type here...">
+                 </div>
+
+                 <button type="submit" class="btn btn-primary pred-button">Predict</button>
+               </form>
+             </section>
+
+             <br>
+             <div class="pred-text">
+               Your Result:
+               {{prediction}}
+             </div>
+
+       </section>
+
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    </body>
+</html>
